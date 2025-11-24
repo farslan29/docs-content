@@ -1,0 +1,117 @@
+---
+title: Understanding Generative APIs
+description: 
+dates:
+  posted: 2025-11-24
+---
+
+Generative APIs provide serverless access to popular artificial intelligence models through simple API calls. If you are new to generative AI technology, this page will help you understand what Generative APIs are, how they work, and how you can use them in your applications.
+
+## What are Generative APIs?
+
+Generative APIs are application programming interfaces that allow you to interact with advanced AI models programmatically. Instead of downloading, configuring, and hosting complex AI models yourself, you send requests to pre-configured endpoints that return AI-generated responses instantly.
+
+Think of Generative APIs as a conversation with an AI assistant through code. You provide input (called a prompt), and the API returns intelligent output based on that input. This could be generated text, image analysis, audio transcription, or semantic understanding of your data.
+
+## How Generative APIs differ from traditional APIs
+
+Traditional APIs typically perform predefined, deterministic operations such as retrieving data from a database or performing calculations. Generative APIs, however, use machine learning models to create new content or derive meaning from unstructured data. Each response is generated dynamically based on the context you provide, making them ideal for tasks requiring understanding, creativity, or complex pattern recognition.
+
+## Key benefits of Scaleway Generative APIs
+
+### No infrastructure management required
+
+Scaleway handles all the complexity of hosting AI models. You do not need to provision servers, manage GPU resources, or worry about model deployment. The infrastructure is serverless, meaning you can start querying AI models immediately without any setup.
+
+### Access to multiple leading AI models
+
+Scaleway Generative APIs provide access to a diverse catalog of popular AI models, including:
+- **Chat and text generation models** for conversational AI, content creation, and text-based tasks
+- **Vision models** for analyzing images and understanding visual content
+- **Embedding models** for semantic search and similarity matching
+- **Audio transcription models** for converting speech to text
+
+This variety allows you to choose the right model for your specific use case without being locked into a single vendor's ecosystem.
+
+### Cost-effective pay-per-use pricing
+
+You only pay for what you use, measured in tokens, which are basic units of text that models process. Scaleway offers a generous free tier of 1,000,000 tokens for new customers, allowing you to experiment and build prototypes without upfront costs. After the free tier, you pay per million tokens consumed, with no infrastructure fees or long-term commitments.
+
+### European data sovereignty and compliance
+
+All Generative APIs are hosted in Scaleway's secure European data centers, ensuring your data remains in the EU. This provides compliance with European data protection regulations and the EU AI Act, making Scaleway Generative APIs particularly valuable for organizations with strict data residency requirements.
+
+### OpenAI compatibility
+
+Scaleway Generative APIs are designed to be compatible with OpenAI's API specification. If you have existing code that uses OpenAI libraries or tools, you can often integrate Scaleway's endpoints with minimal changes. This compatibility extends to popular frameworks like LangChain, making it easy to build sophisticated AI applications using familiar tools.
+
+## Common use cases for Generative APIs
+
+Generative APIs enable a wide range of AI-powered applications across industries:
+- **Content generation**: Create articles, product descriptions, marketing copy, or creative writing
+- **Conversational agents**: Build chatbots and virtual assistants that understand and respond naturally
+- **Document analysis**: Extract insights from documents, summarize lengthy texts, or analyze contracts
+- **Code assistance**: Generate, explain, or debug code in multiple programming languages
+- **Semantic search**: Build search systems that understand meaning rather than just matching keywords
+- **Data enrichment**: Classify, categorize, or extract structured information from unstructured data
+- **Multimodal applications**: Analyze images combined with text, or transcribe and analyze audio content
+
+## How to get started
+
+### Prerequisites
+
+To use Scaleway Generative APIs, you need:
+- A Scaleway account
+- A Scaleway API key with appropriate IAM permissions
+
+If you do not have these, create an account on the Scaleway console and generate an API key from the Identity and Access Management section.
+
+### Try the web playground
+
+The easiest way to explore Generative APIs is through the web playground available in the Scaleway console. Navigate to **Generative APIs** under the **AI** section to access an interactive interface where you can:
+- Select from available AI models.
+- Enter prompts and see responses instantly.
+- Experiment with different parameters like temperature and token limits.
+- Understand how models behave before writing code.
+
+This hands-on experience helps you become familiar with how different models respond to various types of prompts.
+
+### Make your first API request
+
+Once you are comfortable with the playground, you can start making programmatic requests. Scaleway Generative APIs accept standard HTTP requests and return JSON responses.
+
+A typical request includes:
+
+- a prompt  
+- the model name  
+- optional parameters such as  
+  - `temperature` (creativity)  
+  - `max_tokens` (response length)  
+  - system instructions (model behavior)
+
+### Choose the right model
+
+Different models excel at different tasks. When selecting a model:
+- Check the [model catalog](/generative-apis/reference-content/supported-models/) in the Scaleway documentation to see available options.
+- Consider the model's context window (how much text it can process at once).
+- Review token pricing for each model to optimize costs.
+- Test multiple models to find the best balance of quality, speed, and cost for your use case.
+
+### Understand tokens and pricing
+
+Tokens are the fundamental units that AI models process. Depending on the language and complexity:
+
+- A token is roughly equivalent to 4 characters in English.
+- One word typically equals 1-2 tokens.
+- Both your input (prompt) and the model's output (response) consume tokens.
+
+Your usage is measured in total tokens processed (input plus output), and you are billed per million tokens. The Scaleway console displays token consumption for each request, helping you monitor and optimize costs.
+
+## Further resources
+
+Now that you understand the fundamentals of Generative APIs, you can dive deeper:
+ 
+1. Follow the [Quickstart guide](/generative-apis/quickstart/) to make your first API request and explore common patterns.  
+2. Use [how-to guides](/generative-apis/how-to/) for deeper integration.  
+3. Browse the complete [model catalog](https://console.scaleway.com/generative-api/models) with specifications and pricing to choose the best model for your use case.  
+4. Refer to the [concepts](/generative-apis/concepts/) as you build and optimize your application.
