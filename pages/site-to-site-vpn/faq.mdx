@@ -1,0 +1,46 @@
+---
+title: Site-to-Site VPN FAQ
+description: Discover Scaleway Site-to-Site VPN.
+dates:
+  posted: 2025-11-24
+productIcon: SiteToSiteVpnProductIcon
+---
+
+
+## Overview
+
+### What is Site-to-Site VPN?
+
+Site-to-Site VPN is a secure networking service that connects your Scaleway VPC to your remote infrastructure, such as an on-premises data center or another cloud provider. It allows encrypted data exchange between your Scaleway VPC and your remote infrastructure over a private VPN tunnel. The connection uses Internet Protocol security (IPsec) for encryption. Unlike client VPNs that connect individual devices, Site-to-Site VPN connects entire networks.
+
+## Pricing and billing
+
+### How much does Site-to-Site VPN cost?
+
+Site-to-Site VPN pricing is based on the VPN gateway type you select. Different gateway types offer different bandwidth capacities and maximum connection limits at varying price. You are billed for the VPN gateway itself, with pricing independent of the number of connections you create (up to the gateway's maximum).
+
+## Compatibility and integration
+
+### Can I use Site-to-Site VPN to connect two Scaleway VPCs?
+
+No, Site-to-Site VPN is designed to connect your Scaleway VPC to remote infrastructure outside of Scaleway, such as your on-premises data center or another cloud provider. If you need to connect two Scaleway VPCs, consider using Private Networks within the same VPC. Site-to-Site VPN requires one endpoint to be a customer gateway representing external infrastructure.
+
+## Usage and management
+
+### Can I change the Private Network attached to my VPN gateway?
+
+No, you cannot modify the Private Network attached to a VPN gateway after its creation. If you need to connect your VPN to a different Private Network, you must delete the existing VPN gateway and create a new one attached to the desired Private Network. Any active VPN connections will be interrupted during this transition.
+
+<Message type="note">
+Before deleting the gateway, ensure you document your connection configurations, including security proposals and routing policies, as you will need to recreate these for the new gateway.
+</Message>
+
+## Support and troubleshooting
+
+### How do I know if my Site-to-Site VPN connection is working correctly?
+
+Monitor your connection status via the Scaleway API using the **Get a connection** call. A properly configured and functioning connection displays an **Active** status. If your connection shows a different status, consult the [status documentation](/site-to-site-vpn/reference-content/statuses/) to understand the issue and follow the recommended troubleshooting steps.
+
+Common issues include incorrect customer gateway device configuration, mismatched pre-shared keys, or incompatible security proposals. Verify that your customer gateway device is configured with the correct public IP addresses, Scaleway ASN (12876), and pre-shared key retrieved from Secret Manager. 
+
+Also ensure route propagation is activated, as traffic cannot flow until this step is completed.
