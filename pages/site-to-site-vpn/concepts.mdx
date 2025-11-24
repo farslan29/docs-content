@@ -1,0 +1,38 @@
+---
+title: Site-to-Site VPN - Concepts
+description: Discover the key concepts of Scaleway VSite-to-Site VPN.
+dates:
+  posted: 2025-11-24
+---
+
+
+## Customer Gateway
+
+A customer gateway is a logical representation of your physical or software-based networking device located on the remote side of a Site-to-Site VPN connection. It represents the endpoint on your remote infrastructure that establishes the IPsec tunnel with the Scaleway VPN gateway.
+
+The customer gateway you create in Scaleway stores information about your real customer gateway device, including its public IP address (IPv4 and/or IPv6) and **A**utonomous **S**ystem **N**umber (ASN) for BGP routing. After creating the customer gateway resource, you must manually configure your actual device with the appropriate IPsec and BGP settings.
+
+## IPsec
+
+**I**nternet **P**rotocol Security (IPsec) is a protocol suite that secures IP communications by authenticating and encrypting each IP packet in a communication session. Site-to-Site VPN uses IPsec to create encrypted tunnels over the public internet between your VPN gateway and customer gateway.
+
+IPsec ensures the confidentiality, integrity, and authenticity of data transmitted through the tunnel. It uses a two-phase protocol consisting of IKEv2 (Internet Key Exchange version 2) for negotiating security parameters, followed by ESP (Encapsulating Security Payload) for encrypting the actual data traffic.
+Once an IPsec tunnel is established and route propagation is enabled, BGP sessions are initiated over the tunnel.
+
+## PSK
+
+A **p**re-**s**hared **k**ey (PSK) is a secret authentication credential used to establish the IPsec tunnel between your VPN gateway and customer gateway. The PSK verifies the identity of both gateways before establishing the tunnel.
+
+When you create a connection, Scaleway automatically generates a PSK and securely stores it in [Scaleway Secret Manager](/secret-manager/). You must retrieve this key via the API and configure it on your customer gateway device. Custom PSKs are not currently supported during Private Beta.
+
+## Route propagation
+
+Route propagation is the mechanism that enables the VPN gateway and customer gateway to initiate BGP sessions and share routing information. When route propagation is enabled on a connection, the gateways begin announcing routes defined in the attached routing policies, allowing traffic to flow across the Site-to-Site VPN.
+
+By default, route propagation is disabled when you create a connection. You must explicitly enable it via the API as the final step in setting up your VPN. Traffic cannot flow over the VPN tunnel when route propagation is not activated.
+
+## VPN gateway
+
+A VPN gateway is a managed resource that serves as the connection point on the Scaleway side of a Site-to-Site VPN tunnel. It provides a secure endpoint for establishing IPsec tunnels between your Scaleway VPC and your remote infrastructure.
+
+Each VPN gateway is attached to a single Scaleway Private Network within your VPC, where it obtains both an IPv4 and IPv6 address. The gateway can host multiple connections to different customer gateways. VPN gateways come in different types offering various performance characteristics based on bandwidth capacity and maximum connection limits.
